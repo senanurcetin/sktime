@@ -23,7 +23,7 @@ jobs:
       - name: Install sktime and focused test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -e . pytest "skpro>=2,<2.17" statsmodels ruff
+          python -m pip install -e . pytest pytest-timeout pytest-xdist "skpro>=2,<2.17" statsmodels ruff
       - name: Run conformal failure regressions
         run: python -m pytest -q sktime/forecasting/tests/test_conformal_residual_failures.py --disable-warnings --maxfail=1 -rs
       - name: Ruff source and tests
